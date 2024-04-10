@@ -44,6 +44,7 @@ end
 
 get("/dice/1/20") do
   @die = rand(1..20)
+  @outcome = "You rolled a #{@die}"
 
   erb(:one_twenty)
 end
@@ -66,4 +67,15 @@ get("/dice/1000/6") do
   end
 
   erb(:thousand_six)
+end
+
+get("/dice/100/6") do
+  @rolls = []
+  100.times do
+    die = rand(1..6)
+
+    @rolls.push(die)
+  end
+
+  erb(:hundred_six)
 end
